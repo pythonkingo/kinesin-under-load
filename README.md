@@ -4,9 +4,9 @@
 > **How does a minimal stochastic model of kinesin respond to increasing cargo load, and what determines where it stalls?**
 
 The project split this research question into 3 subquestions:
-1, Can a minimal stochastic model reproduce the slowing down and stalling of kinesin that is seen in experiments?
-2, Which ingredients does the model need in order to stall?
-3, How do the model assumptions and parameters shift the predicted stall force?
+1. Can a minimal stochastic model reproduce the slowing down and stalling of kinesin that is seen in experiments?
+2. Which ingredients does the model need in order to stall?
+3. How do the model assumptions and parameters shift the predicted stall force?
 
 ## Abstract
 Kinesin-1 is a molecular motor that uses ATP hydrolysis to transport cargo along microtubules in 8 nm steps. Experiments have shown that kinesin slows down as the cargo load increases and eventually stalls at roughly 7 pN, where there is no net forward motion [2]. This project asks at what load the stall occurs, which parameters determine it, and whether it can be captured by a minimal stochastic model. 
