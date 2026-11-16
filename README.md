@@ -1,7 +1,7 @@
 # Where Does Kinesin stall? - A minimal stochastic model of a molecular motor under load.
 
 ## Research question
-> ** How does a minimal stochastic model of kinesin respond to increasing cargo load and what determines when it stalls?
+> **How does a minimal stochastic model of kinesin respond to increasing cargo load, and what determines where it stalls?**
 
 The project split this research question into 3 subquestions:
 1, Can a minimal stochastic model reproduce the slowing down and stalling of kinesin that is seen in experiments?
@@ -9,7 +9,11 @@ The project split this research question into 3 subquestions:
 3, How do the model assumptions and parameters shift the predicted stall force?
 
 ## Abstract
-A Kinesin-1 is a molecular motor that is using ATP hydrolysis in order to transport cargo along microtubules in 8 nm steps. Experiments have shown that the kinesin slows down under increased cargo load and eventually reaching a stalling state meaning that there is no forward motion. This ask therefore the question when this state appears, what is the causing parameters and whether or not it can be modelled through a simple stochastic dynamics system. 
+Kinesin-1 is a molecular motor that uses ATP hydrolysis to transport cargo along microtubules in 8 nm steps. Experiments have shown that kinesin slows down as the cargo load increases and eventually stalls at roughly 7 pN, where there is no net forward motion [2]. This project asks at what load the stall occurs, which parameters determine it, and whether it can be captured by a minimal stochastic model. 
 
-Ariga et al research lays the foundation for the project where they used a two state markov stepping model in order to determine where the energy is going under this transportation. The forward and backward steps was modelled through Bell's law and the trajaectory is simulated with Gillespie algorithm. Nulling the load yields a force velocity cure and stall gorces which are checked against the analytical steady-state solution and comapred with the experimaental results. Note that the steady state solution is not a stalling state since the Kinesin consume ATP even when taking steps backwards. 
-The method will involve reducing the load and backward steps in order to determine which one is needed to a stalling state. The model parameters will also vary to understand how they affect the stall force. 
+The project builds on Ariga et al. [1], who described kinesin as a two-state Markov stepper in which the forward and backward steps depend on the load through Bell’s law. Here, trajectories of this model are simulated with the Gillespie algorithm [5]. Increasing the load step by step yields a force–velocity curve and a stall force, which are checked against the analytical steady-state solution and compared with experimental results [2, 3]. To identify which ingredients are needed for stalling, backward steps and the load-independent chemical step are removed one at a time, and the model parameters are varied to show how they shift the stall force.
+
+## Background
+
+
+## Method
