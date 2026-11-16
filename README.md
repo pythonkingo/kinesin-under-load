@@ -17,3 +17,12 @@ The project builds on Ariga et al. [1], who described kinesin as a two-state Mar
 Kinesin-1 walks hand-over-hand along a microtubule and advances 8 nm for each ATP molecule it hydrolyses [2]. When an opposing load is applied, for example with an optical trap that pulls the cargo backwards [1, 2], the motor slows down and takes backward steps more often [3]. At the stall force, forward and backward steps occur at equal rates, so there is no net motion. Simple discrete-state stochastic models have been shown to describe such force–velocity measurements well [4]. This project uses the two-state model of Ariga et al. [1] as a starting point and investigates which of its ingredients (the load-dependent stepping rates, the backward steps and the load-independent chemical step) are responsible for the stall.
 
 ## Method
+
+
+
+## References
+ 
+1. T. Ariga, M. Tomishige, and D. Mizuno, "Nonequilibrium Energetics of Molecular Motor Kinesin," *Phys. Rev. Lett.* **121**, 218101 (2018). https://doi.org/10.1103/PhysRevLett.121.218101
+2. K. Visscher, M. J. Schnitzer, and S. M. Block, "Single kinesin molecules studied with a molecular force clamp," *Nature* **400**, 184–189 (1999). https://doi.org/10.1038/22146
+3. N. J. Carter and R. A. Cross, "Mechanics of the kinesin step," *Nature* **435**, 308–312 (2005). https://doi.org/10.1038/nature03528
+4. M. E. Fisher and A. B. Kolomeisky, "Simple mechanochemistry describes the dynamics of kinesin molecules," *Proc. Natl. Acad. Sci. USA* **98**, 7748–7753 (2001). https://doi.org/10.1073/pnas.141080498
