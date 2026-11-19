@@ -17,8 +17,37 @@ The project builds on Ariga et al. [1], who described kinesin as a two-state Mar
 Kinesin-1 walks hand-over-hand along a microtubule and advances 8 nm for each ATP molecule it hydrolyses [2]. When an opposing load is applied, for example with an optical trap that pulls the cargo backwards [1, 2], the motor slows down and takes backward steps more often [3]. At the stall force, forward and backward steps occur at equal rates, so there is no net motion. Simple discrete-state stochastic models have been shown to describe such force–velocity measurements well [4]. This project uses the two-state model of Ariga et al. [1] as a starting point and investigates which of its ingredients (the load-dependent stepping rates, the backward steps and the load-independent chemical step) are responsible for the stall.
 
 ## Method
+The method is based on a two step model done in the Ariga et al paper. It is based on the idea that the kinesin work under 2 seuqential states. State 1 is when the Kinesin is watining for the ATP when that arrives is move to state 2 which decided whether the step is forward or backward. In this two state model there is 3 konstants, k_c which decieds how often the kinesin binds to the ATP, k_f och k_b deceid of often a step forward and backward happens when the model turns to state 2. As describe in the introduction, the more load F the kinesin have to carry the rarer the step forward becomes i.e the Bells law.
 
+(figure)
 
+ 
+The steady-state mean velocity is [1]
+ 
+$$
+v(F) = d\,\frac{\big(k_f(F) - k_b(F)\big)\,k_c}{k_f(F) + k_b(F) + k_c}, \qquad d = 8\ \text{nm}.
+$$
+ 
+The motor stalls ($v = 0$) when $k_f = k_b$, which gives
+ 
+$$
+F_{\text{stall}} = \frac{k_B T}{d_f + d_b}\,\ln\!\frac{k_f^0}{k_b^0}.
+$$
+ 
+The baseline parameters are the values Ariga et al. [1] fitted to their measured force–velocity curves:
+ 
+| Condition | $k_f^0$ (s⁻¹) | $k_b^0$ (s⁻¹) | $k_c$ (s⁻¹) | $d_f$ (nm) | $d_b$ (nm) |
+|---|---|---|---|---|---|
+| High ATP (1 mM) | 981 | 22.8 | 129 | 3.3 | 0.47 |
+| Low ATP (10 µM) | 889 | 0.61 | 32.5 | 4.0 | −0.83 |
+ 
+$T = 298$ K, so $k_B T \approx 4.1$ pN·nm.
+
+### Simulation
+The above model is then evaluated thorugh a simulation called the Gillespie alogrithm also done in the Ariga et al paper. 
+
+ach run simulates one motor under a constant load $F$. In each state the waiting time is drawn from the exponential distribution set by the total exit rate. The next transition is chosen with probability proportional to its rate. The output is a trajectory $x(t)$ of discrete steps.
+- **Observables.** For each load the simulation records the mean velocity (from a linear fit of $x(t)$ averaged over many runs, with error bars), the fraction of backward steps, and the dwell-time distribution.
 
 ## References
  
