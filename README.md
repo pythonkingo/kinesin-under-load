@@ -11,7 +11,7 @@ The research question is split into three sub-questions:
 3. How do the model assumptions and parameters shift the predicted stall force?
 ## Abstract
  
-Kinesin-1 is a molecular motor that uses ATP hydrolysis to transport cargo along microtubules in 8 nm steps. Experiments have shown that kinesin slows down as the cargo load increases and eventually stalls at roughly 7 pN, where there is no net forward motion [2]. This project asks at what load the stall occurs, which parameters determine it, and whether it can be captured by a minimal stochastic model. The project builds on Ariga et al. [1], who described kinesin as a two-state Markov stepper in which the forward and backward steps depend on the load through Bell's law. Here, trajectories of this model are simulated with the Gillespie algorithm [5]. Increasing the load step by step yields a force–velocity curve and a stall force, which are checked against the analytical steady-state solution and compared with experimental results [2, 3]. To identify which ingredients are needed for stalling, backward steps and the load-independent chemical step are removed one at a time, and the model parameters are varied to show how they shift the stall force.
+Kinesin-1 is a molecular motor that uses ATP hydrolysis to transport cargo along microtubules in 8 nm steps. Experiments have shown that kinesin slows down as the cargo load increases and eventually stalls at roughly 7 pN, where there is no net forward motion [2]. This project asks at what load the stall occurs, which parameters determine it and whether it can be captured by a minimal stochastic model. The project builds on the Ariga et al paper [1], who described kinesin as a two-state Markov stepper in which the forward and backward steps depend on the load through Bell's law. Here the trajectories of this model are simulated with the Gillespie algorithm [5]. Increasing the load step by step yields a force–velocity curve and a stall force which are checked against the analytical steady-state solution and compared with experimental results [2, 3]. To identify which ingredients are needed for stalling, backward steps and the load-independent chemical step are removed one at a time, and the model parameters are varied to show how they shift the stall force.
  
 ## Background
  
@@ -21,9 +21,9 @@ Kinesin-1 walks hand-over-hand along a microtubule and advances 8 nm for each AT
  
 ### Model
  
-The model is the two-state stepper of Ariga et al. [1]. Each cycle of the motor consists of two sequential states. In state 1 the motor waits for a load-independent chemical transition, which is interpreted here as ATP binding. It occurs at rate $k_c$ and takes the motor to state 2. From state 2 the motor takes either a forward step ($+d$) at rate $k_f$ or a backward step ($-d$) at rate $k_b$, and returns to state 1.
-  
-The load $F$ makes forward steps rarer and backward steps more frequent. Following [1], this is described by Bell's law:
+The model is the two-state stepper of Ariga et al. [1]. Each cycle of the motor consists of two sequential states. In state 1 the motor waits for a load-independent chemical transition which is interpreted here as ATP binding. It occurs at rate $k_c$ and takes the motor to state 2. From state 2 the motor takes either a forward step ($+d$) at rate $k_f$ or a backward step ($-d$) at rate $k_b$ and returns to state 1.
+
+The load $F$ makes forward steps rarer and backward steps more frequent, this is described by Bell's law:
  
 $$
 k_f(F) = k_f^0 \exp\!\left(-\frac{d_f F}{k_B T}\right), \qquad
@@ -46,7 +46,7 @@ $$
  
 This expression is not stated in [1] but follows directly from their velocity equation. It shows that $k_c$ affects the speed of the motor but not the stall force.
  
-The baseline parameters are the values Ariga et al. [1] fitted to their measured force–velocity curves:
+The baseline parameters are the values taken from Ariga et al. [1] fitted to their measured force–velocity curves:
  
 | Condition | $k_f^0$ (s⁻¹) | $k_b^0$ (s⁻¹) | $k_c$ (s⁻¹) | $d_f$ (nm) | $d_b$ (nm) |
 |---|---|---|---|---|---|
